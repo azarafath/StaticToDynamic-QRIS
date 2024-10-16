@@ -1,46 +1,105 @@
-# Getting Started with Create React App
+# QRIS Converter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+QRIS Converter adalah aplikasi berbasis React yang memungkinkan pengguna untuk membuat **kode QRIS** dengan data statis dan kemampuan untuk menambahkan biaya tambahan (fee) dalam bentuk **nilai tetap** atau **persentase**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Fitur Utama
+1. **Input Jumlah Tagihan**  
+   Pengguna dapat memasukkan jumlah tagihan yang akan dibayar.
 
-### `npm start`
+2. **Opsi Penambahan Fee (Biaya Tambahan)**  
+   - Fee dapat berupa *nilai tetap* (Rupiah) atau *persentase* dari total tagihan.
+   - Jika fee diaktifkan, sistem akan otomatis menghitung total tagihan.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. **Konversi Kode QR**  
+   - Aplikasi akan memodifikasi QRIS statis berdasarkan input pengguna (jumlah dan fee).
+   - QR code hasil konversi akan ditampilkan dan divisualisasikan di canvas.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. **Dark Mode Toggle**  
+   Aplikasi mendukung **perubahan tema** antara mode terang dan gelap.
 
-### `npm test`
+5. **Reset Form dan QR Code**  
+   Pengguna dapat kembali ke form untuk mengubah input dengan menekan tombol **Back**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Instalasi dan Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Pastikan Anda sudah memiliki **Node.js** dan **npm** terinstal di perangkat Anda.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone repository ini ke perangkat lokal Anda:
+   ```bash
+   git clone <repository-url>
+   cd qris-converter
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Instal dependensi:
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. Jalankan aplikasi:
+   ```bash
+   npm run dev
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Buka browser dan akses:
+   ```
+   http://localhost:3000
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Cara Mengubah **Static QRIS**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Agar aplikasi dapat menggunakan QRIS Anda, ganti nilai variabel **`qrisStatic`** di dalam kode dengan QRIS statis Anda sendiri.
 
-## Learn More
+```javascript
+// Ubah nilai di sini dengan QRIS statis Anda
+const qrisStatic = "00020101021126570011ID.DANA.WWW011893600915336094826302093609482630303UMI51440014ID.CO.QRIS.WWW0215ID10222329023150303UMI5204737253033605802ID5922Ahmad Zakaria Fathoni 6013Kota Semarang61055021863045D82";
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Petunjuk**:
+1. Salin kode QRIS statis Anda (dari bank atau aplikasi QRIS resmi).  
+2. Ganti string di variabel `qrisStatic` dengan kode Anda.  
+3. Pastikan format kode QRIS sesuai agar aplikasi dapat memprosesnya dengan benar.  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## Cara Penggunaan
+
+1. **Input Tagihan**  
+   Masukkan jumlah tagihan di kolom **Amount**.
+
+2. **Opsi Fee**  
+   Jika ingin menambahkan biaya tambahan, centang opsi **Termasuk Fee?** dan pilih tipe fee:  
+   - **Fixed**: Biaya dalam rupiah.  
+   - **Percentage**: Biaya dalam bentuk persentase dari jumlah tagihan.
+
+3. **Konversi QRIS**  
+   Klik tombol **Konversi** untuk menghasilkan kode QR.
+
+4. **QR Code & Total Tagihan**  
+   Setelah QR code muncul, Anda akan melihat total tagihan yang sudah termasuk fee (jika ada).  
+
+5. **Reset Data**  
+   Klik **Back** untuk kembali dan melakukan input ulang.
+
+---
+
+## Tampilan UI
+
+- **Tema Gradien**: Latar belakang halaman menggunakan **gradien warna ungu hingga merah**, dengan opsi untuk dark mode.
+- **Animasi & Transisi**: Komponen UI dilengkapi dengan animasi untuk peningkatan UX.
+- **Canvas QR Code**: QR code digambar di dalam elemen **canvas** untuk menjaga kualitas tampilan.
+
+---
+
+## Dependensi
+
+- **React**: Library utama untuk membangun UI.
+- **Next.js Themes**: Mengelola tema light/dark mode.
+- **QRCode**: Library untuk menghasilkan kode QR dalam format **canvas** dan **dataURL**.
+- **Lucide React**: Menyediakan ikon tema (Moon dan Sun).
+
