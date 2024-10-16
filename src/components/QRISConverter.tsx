@@ -2,9 +2,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import QRCode from 'qrcode';
 import { useTheme } from 'next-themes';
-import { Moon, Sun, Share2 } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 
+
+// Static QRIS CHANGE HERE
 const qrisStatic = "00020101021126570011ID.DANA.WWW011893600915336094826302093609482630303UMI51440014ID.CO.QRIS.WWW0215ID10222329023150303UMI5204737253033605802ID5922Ahmad Zakaria Fathoni 6013Kota Semarang61055021863045D82";
+
 
 const calculateCRC16 = (str: string): string => {
   const charCodeAt = (str: string, i: number) => str.charCodeAt(i);
