@@ -2,6 +2,9 @@
 
 QRIS Converter adalah aplikasi berbasis React yang memungkinkan pengguna untuk membuat **kode QRIS** dengan data statis dan kemampuan untuk menambahkan biaya tambahan (fee) dalam bentuk **nilai tetap** atau **persentase**.
 
+
+# Demo
+https://qr.azf.my.id/
 ---
 
 ## Fitur Utama
